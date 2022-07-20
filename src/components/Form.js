@@ -7,8 +7,8 @@ class Form extends Component {
     this.state = {
       name: "",
       date: "",
-      time: null,
-      guests: null,
+      time: "",
+      guests: "",
       isFilled: false,
     };
   }
@@ -21,7 +21,15 @@ class Form extends Component {
   };
 
   handleSubmit = () => {
-    console.log("clicked");
+    let newResy = {
+      id: Date.now(),
+      name: this.state.name,
+      date: this.state.date,
+      time: this.state.time,
+      guests: this.state.guests,
+    };
+    // console.log(newResy);
+    this.props.addResy(newResy);
   };
 
   render() {
