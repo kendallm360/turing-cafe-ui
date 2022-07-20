@@ -4,33 +4,33 @@ import "./ResyContainer.css";
 import Form from "./Form";
 
 class ResyContainer extends Component {
-  //   constructor() {
-  //     super();
-  //     this.state = {
-  //       json: [],
-  //     };
-  //   }
+  constructor() {
+    super();
+    this.state = {
+      json: [],
+    };
+  }
 
-  //   componentDidMount = () => {
-  //     fetch("http://localhost:3001/api/v1/reservations")
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         this.setState({
-  //           json: data,
-  //           newRes: {},
-  //         });
-  //       });
-  //   };
+  componentDidMount = () => {
+    fetch("http://localhost:3001/api/v1/reservations")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          json: data,
+        });
+      });
+  };
 
-  // addResy = (newResy) => {
-  //     this.setState((prevState) => {
-  //         return [...prevState, newRes: newResy]
-  //     })
-  // };
+  addResy = (newResy) => {
+    this.setState({
+      json: [...this.state.json, newResy],
+    });
+    console.log(this.state.json);
+  };
 
   render() {
-    console.log(this.props.json);
-    let allResys = this.props.json.map((resy) => {
+    console.log(this.state.json);
+    let allResys = this.state.json.map((resy) => {
       return (
         <Resys
           id={resy.id}
@@ -42,7 +42,12 @@ class ResyContainer extends Component {
         />
       );
     });
-    return <div className="resy-container">{allResys}</div>;
+    return (
+      <div className="allResys">
+        <Form addResy={this.addResy} />
+        <div className="resy-cards">{allResys}</div>
+      </div>
+    );
   }
 }
 

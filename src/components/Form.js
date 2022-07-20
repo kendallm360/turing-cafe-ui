@@ -26,9 +26,8 @@ class Form extends Component {
       name: this.state.name,
       date: this.state.date,
       time: this.state.time,
-      guests: this.state.guests,
+      number: this.state.guests,
     };
-    // console.log(newResy);
     this.props.addResy(newResy);
   };
 

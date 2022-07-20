@@ -1,7 +1,16 @@
-.resy-container {
+.allResys {
   display: flex;
-  flex-direction: row;
-  /* justify-content: space-between;
-  align-content: space-around;
-  align-items: space-between; */
+  flex-direction: column;
+}
+
+.resy-cards {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
+.cancel {
+  background-color: teal;
+  color: white;
 }
