@@ -1,0 +1,8 @@
+.resys {
+  background-color: white;
+  border: solid 2px teal;
+  color: teal;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+}
