@@ -7,7 +7,7 @@ class ResyContainer extends Component {
   //   constructor() {
   //     super();
   //     this.state = {
-  //       json: [],
+  //       api: this.props.json,
   //     };
   //   }
 
@@ -42,7 +42,7 @@ class ResyContainer extends Component {
         />
       );
     });
-    return <div className="resy-container">{allResys}</div>;
+    return <div className="allResys">{allResys}</div>;
   }
 }
 
