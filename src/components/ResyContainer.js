@@ -27,10 +27,33 @@ class ResyContainer extends Component {
   //         return [...prevState, newRes: newResy]
   //     })
   // };
+  constructor() {
+    super();
+    this.state = {
+      json: [],
+    };
+  }
+
+  componentDidMount = () => {
+    fetch("http://localhost:3001/api/v1/reservations")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          json: data,
+        });
+      });
+  };
+
+  addResy = (newResy) => {
+    this.setState((prevState) => {
+      return { ...prevState, json: newResy };
+    });
+    console.log(this.state.json);
+  };
 
   render() {
-    console.log(this.props.json);
-    let allResys = this.props.json.map((resy) => {
+    console.log(this.state.json);
+    let allResys = this.state.json.map((resy) => {
       return (
         <Resys
           id={resy.id}
@@ -42,7 +65,12 @@ class ResyContainer extends Component {
         />
       );
     });
-    return <div className="allResys">{allResys}</div>;
+    return (
+      <div className="allResys">
+        <Form addResy={this.addResy} />
+        <div className="resy-cards">{allResys}</div>
+      </div>
+    );
   }
 }
 
