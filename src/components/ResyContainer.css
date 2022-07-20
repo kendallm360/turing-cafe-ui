@@ -1,13 +1,6 @@
 .allResys {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between;
-  align-content: space-around;
-  align-items: space-between; */
-  /* padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px; */
 }
 
 .resy-cards {
