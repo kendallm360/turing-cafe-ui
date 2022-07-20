@@ -1,28 +1,36 @@
 import React, { Component } from "react";
 import Resys from "./Resys";
 import "./ResyContainer.css";
+import Form from "./Form";
 
 class ResyContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      json: [],
-    };
-  }
+  //   constructor() {
+  //     super();
+  //     this.state = {
+  //       json: [],
+  //     };
+  //   }
 
-  componentDidMount = () => {
-    fetch("http://localhost:3001/api/v1/reservations")
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          json: data,
-        });
-      });
-  };
+  //   componentDidMount = () => {
+  //     fetch("http://localhost:3001/api/v1/reservations")
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         this.setState({
+  //           json: data,
+  //           newRes: {},
+  //         });
+  //       });
+  //   };
+
+  // addResy = (newResy) => {
+  //     this.setState((prevState) => {
+  //         return [...prevState, newRes: newResy]
+  //     })
+  // };
 
   render() {
-    console.log(this.state.json);
-    let allResys = this.state.json.map((resy) => {
+    console.log(this.props.json);
+    let allResys = this.props.json.map((resy) => {
       return (
         <Resys
           id={resy.id}
