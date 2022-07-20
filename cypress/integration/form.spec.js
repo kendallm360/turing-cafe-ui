@@ -23,10 +23,13 @@ describe("Form", () => {
     cy.get("div .resys").contains("h1", "Christie");
   });
 
-  it.only("Should have a form that takes in and populates information", () => {
+  it("Should have a form that takes in and populates information", () => {
     cy.get("div .allResys").get("input[type=text]").eq(0).type("Kendall");
     cy.get("div .allResys").get("input[type=text]").eq(1).type("09/28");
     cy.get("select").select("7:00");
     cy.get("div .allResys").get("input[type=text]").eq(2).type("2");
+    cy.get("div .allResys").contains("button", "Make Reservation").click();
+    cy.get("div .resys").contains("h1", "Kendall");
+    cy.get("div .resys").contains("p", "7:00 pm");
   });
 });
