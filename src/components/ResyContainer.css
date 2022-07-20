@@ -16,3 +16,8 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
 }
+
+.cancel {
+  background-color: teal;
+  color: white;
+}

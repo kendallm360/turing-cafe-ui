@@ -23,7 +23,7 @@ describe("Form", () => {
     cy.get("div .resys").contains("h1", "Christie");
   });
 
-  it("Should have a form that takes in and populates information", () => {
+  it.only("Should have a form that takes in and populates information", () => {
     cy.get("div .allResys").get("input[type=text]").eq(0).type("Kendall");
     cy.get("div .allResys").get("input[type=text]").eq(1).type("09/28");
     cy.get("select").select("7:00");

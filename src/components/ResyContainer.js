@@ -4,29 +4,6 @@ import "./ResyContainer.css";
 import Form from "./Form";
 
 class ResyContainer extends Component {
-  //   constructor() {
-  //     super();
-  //     this.state = {
-  //       api: this.props.json,
-  //     };
-  //   }
-
-  //   componentDidMount = () => {
-  //     fetch("http://localhost:3001/api/v1/reservations")
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         this.setState({
-  //           json: data,
-  //           newRes: {},
-  //         });
-  //       });
-  //   };
-
-  // addResy = (newResy) => {
-  //     this.setState((prevState) => {
-  //         return [...prevState, newRes: newResy]
-  //     })
-  // };
   constructor() {
     super();
     this.state = {
@@ -45,8 +22,8 @@ class ResyContainer extends Component {
   };
 
   addResy = (newResy) => {
-    this.setState((prevState) => {
-      return { ...prevState, json: newResy };
+    this.setState({
+      json: [...this.state.json, newResy],
     });
     console.log(this.state.json);
   };
