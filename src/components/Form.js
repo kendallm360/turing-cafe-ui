@@ -12,6 +12,18 @@ class Form extends Component {
       isFilled: false,
     };
   }
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSubmit = () => {
+    console.log("clicked");
+  };
+
   render() {
     return (
       <div className="form">
@@ -22,6 +34,40 @@ class Form extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
+        <input
+          type="text"
+          name="date"
+          placeholder="Date (mm/dd)"
+          value={this.state.date}
+          onChange={this.handleChange}
+        />
+        <select
+          type="text"
+          name="time"
+          value={this.state.time}
+          onChange={this.handleChange}
+        >
+          <option>--Select a Time</option>
+          <option>5:30</option>
+          <option>5:45</option>
+          <option>6:00</option>
+          <option>6:15</option>
+          <option>6:30</option>
+          <option>6:45</option>
+          <option>7:00</option>
+          <option>7:15</option>
+          <option>7:30</option>
+        </select>
+        <input
+          type="text"
+          name="guests"
+          placeholder="Number of Guests"
+          value={this.state.guests}
+          onChange={this.handleChange}
+        />
+        <button className="reservation" onClick={this.handleSubmit}>
+          Make Reservation
+        </button>
       </div>
     );
   }
